@@ -16,7 +16,7 @@ public class Ball : MonoBehaviour
     [SerializeField] private float speed = 8f;
     [SerializeField] private List<string> tags;
     [SerializeField] private string otherTag;
-    private Vector2 velocity;
+    private Vector2 direction;
 
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip audioScore;
@@ -29,18 +29,21 @@ public class Ball : MonoBehaviour
     void Start()
     {
         transform.position = Vector2.zero;
-        velocity = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+        direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
     }
 
     void Update()
     {
-        transform.Translate(velocity * speed * Time.deltaTime);
+        transform.Translate(direction * speed * Time.deltaTime);
     }
 
+    /// <summary>
+    /// Resets the ball back to the center of the screen, and gives the ball a new velocity in a new direction
+    /// </summary>
     private void ResetBall()
     {
         transform.position = Vector2.zero;
-        velocity = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+        direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -50,13 +53,13 @@ public class Ball : MonoBehaviour
         }
         else if (other.CompareTag(tags[(int) CollisonTag.BounceWall])) //Checks to see if the ball hits the top or bottom wall, and bounce the ball in the opposite direction
         {
-            velocity.y = -velocity.y;
+            direction.y = -direction.y;
         }
         else if (other.CompareTag(tags[(int) CollisonTag.Player])) //Checks to see if the ball hits a player's paddle, and bounces the ball in the opposite direction 
         {
-            velocity.x = -velocity.x;
-            velocity.y = transform.position.y - other.transform.position.y;
-            velocity = velocity.normalized;
+            direction.x = -direction.x;
+            direction.y = transform.position.y - other.transform.position.y;
+            direction = direction.normalized;
         }
     }
 }

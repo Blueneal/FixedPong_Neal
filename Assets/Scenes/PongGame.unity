@@ -2299,12 +2299,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  tags: []
+  tags:
+  - ScoreWall
+  - BounceWall
+  - Player
   otherTag: 
-  audioSource: {fileID: 0}
-  audioScore: {fileID: 0}
-  audioPlayer: {fileID: 0}
-  audioWall: {fileID: 0}
+  audioSource: {fileID: 277591915}
+  audioScore: {fileID: 8300000, guid: 60b1630540cc88449aaf70f2532ce857, type: 3}
+  audioPlayer: {fileID: 8300000, guid: 89ac86caef9822742bf80949d63e7186, type: 3}
+  audioWall: {fileID: 8300000, guid: 9c4744d1fb88f9c4d91c333d8cc1bb16, type: 3}
 --- !u!50 &1368952081
 Rigidbody2D:
   serializedVersion: 5
