@@ -6,7 +6,7 @@ public class Ball : MonoBehaviour
     [SerializeField] private float x = 8f;
     [SerializeField] private List<string> tags;
     [SerializeField] private string otherTag;
-    private Vector2 v;
+    private Vector2 velocity;
 
     [SerializeField] private AudioSource aS;
     [SerializeField] private AudioClip clip1;
@@ -15,18 +15,18 @@ public class Ball : MonoBehaviour
     void Start()
     {
         transform.position = Vector2.zero;
-        v = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+        velocity = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
     }
 
     void Update()
     {
-        transform.Translate(v * x * Time.deltaTime);
+        transform.Translate(velocity * x * Time.deltaTime);
     }
 
     private void ResetBall()
     {
         transform.position = Vector2.zero;
-        v = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+        velocity = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -36,13 +36,13 @@ public class Ball : MonoBehaviour
         }
         else if (other.CompareTag(otherTag))
         {
-            v.y = -v.y;
+            velocity.y = -velocity.y;
         }
         else if (other.CompareTag("Player"))
         {
-            v.x = -v.x;
-            v.y = transform.position.y - other.transform.position.y;
-            v = v.normalized;
+            velocity.x = -velocity.x;
+            velocity.y = transform.position.y - other.transform.position.y;
+            velocity = velocity.normalized;
         }
     }
 }

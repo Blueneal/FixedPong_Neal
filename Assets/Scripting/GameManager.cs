@@ -6,26 +6,26 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<int> playerScores;
     [SerializeField] private List<TextMeshProUGUI> playerScoreTexts;
 
-    private static GameManager instance;
+    private static GameManager Instance;
     void Start()
     {
-        if(instance != null && instance != this)
+        if(Instance != null && Instance != this)
         {
             Destroy(gameObject);
             return;
         }
-        instance = this;
+        Instance = this;
     }
 
     public static void IncrementScore(PlayerType playerType)
     {
-        if (instance == null) return;
+        if (Instance == null) return;
         
-        if (instance.playerScoreTexts.Count <= (int) playerType) return;
+        if (Instance.playerScoreTexts.Count <= (int) playerType) return;
         
-        instance.playerScores[(int) playerType]++;
-        TextMeshProUGUI scoreText = instance.playerScoreTexts[(int)playerType];
-        scoreText.text = instance.playerScores[(int)playerType].ToString();
+        Instance.playerScores[(int) playerType]++;
+        TextMeshProUGUI scoreText = Instance.playerScoreTexts[(int)playerType];
+        scoreText.text = Instance.playerScores[(int)playerType].ToString();
     }
 
 }

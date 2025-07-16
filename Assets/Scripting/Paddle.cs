@@ -17,7 +17,7 @@ public class Paddle : MonoBehaviour
     public float Boundary = 4f;
 
     [SerializeField] private InputAction inputAction;
-    private float move;
+    private float moveDirection;
 
     void Awake()
     {
@@ -35,19 +35,27 @@ public class Paddle : MonoBehaviour
         inputAction.Disable();
     }
 
+    /// <summary>
+    /// Looking for input from a player pressing the correct move keys
+    /// </summary>
+    /// <param name="context"></param>
     private void OnMovePerformed(InputAction.CallbackContext context)
     {
-        move = context.ReadValue<float> ();
+        moveDirection = context.ReadValue<float> ();
     }
 
+    /// <summary>
+    /// Looking to see when the player stops any input
+    /// </summary>
+    /// <param name="context"></param>
     private void OnMoveCanceled(InputAction.CallbackContext context)
     {
-        move = 0;
+        moveDirection = 0;
     }
 
     void Update()
     {
-        float movement = move * Speed * Time.deltaTime;
+        float movement = moveDirection * Speed * Time.deltaTime;
         transform.Translate(0f, movement, 0f);
 
         float clampedY = Mathf.Clamp(transform.position.y, -Boundary, Boundary);
