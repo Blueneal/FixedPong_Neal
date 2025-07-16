@@ -3,6 +3,16 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
+    /// <summary>
+    /// Creates a list of the tags used when the ball enters the collision of another object
+    /// </summary>
+    public enum CollisonTag
+    {
+        ScoreWall,
+        BounceWall,
+        Player
+    }
+
     [SerializeField] private float speed = 8f;
     [SerializeField] private List<string> tags;
     [SerializeField] private string otherTag;
@@ -34,15 +44,15 @@ public class Ball : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("ScoreWall")) //Checks to see if the ball enters the Score zone boundaries, and resets if so
+        if (other.CompareTag(tags[(int) CollisonTag.ScoreWall])) //Checks to see if the ball enters the Score zone boundaries, and resets if so
         {
             ResetBall();
         }
-        else if (other.CompareTag("BounceWall")) //Checks to see if the ball hits the top or bottom wall, and bounce the ball in the opposite direction
+        else if (other.CompareTag(tags[(int) CollisonTag.BounceWall])) //Checks to see if the ball hits the top or bottom wall, and bounce the ball in the opposite direction
         {
             velocity.y = -velocity.y;
         }
-        else if (other.CompareTag("Player")) //Checks to see if the ball hits a player's paddle, and bounces the ball in the opposite direction 
+        else if (other.CompareTag(tags[(int) CollisonTag.Player])) //Checks to see if the ball hits a player's paddle, and bounces the ball in the opposite direction 
         {
             velocity.x = -velocity.x;
             velocity.y = transform.position.y - other.transform.position.y;
