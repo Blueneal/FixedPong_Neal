@@ -1,7 +1,9 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+/// <summary>
+/// declares the enum that are the two players in the game that will be accessing the script
+/// </summary>
 public enum PlayerType 
 { 
     Player1, 
@@ -15,7 +17,7 @@ public class Paddle : MonoBehaviour
     public float Boundary = 4f;
 
     [SerializeField] private InputAction inputAction;
-    private float m;
+    private float move;
 
     void Awake()
     {
@@ -35,17 +37,17 @@ public class Paddle : MonoBehaviour
 
     private void OnMovePerformed(InputAction.CallbackContext context)
     {
-        m = context.ReadValue<float> ();
+        move = context.ReadValue<float> ();
     }
 
     private void OnMoveCanceled(InputAction.CallbackContext context)
     {
-        m = 0;
+        move = 0;
     }
 
     void Update()
     {
-        float movement = m * Speed * Time.deltaTime;
+        float movement = move * Speed * Time.deltaTime;
         transform.Translate(0f, movement, 0f);
 
         float clampedY = Mathf.Clamp(transform.position.y, -Boundary, Boundary);
