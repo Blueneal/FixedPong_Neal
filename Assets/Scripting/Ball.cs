@@ -12,6 +12,10 @@ public class Ball : MonoBehaviour
     [SerializeField] private AudioClip clip1;
     [SerializeField] private AudioClip clip2;
     [SerializeField] private AudioClip clip3;
+
+    /// <summary>
+    /// gives the ball velocity, and finds a direction on a random point on the two axis and normalizing the speed to keep the movement clean
+    /// </summary>
     void Start()
     {
         transform.position = Vector2.zero;
