@@ -34,11 +34,11 @@ public class Ball : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(tags[0]))
+        if (other.CompareTag("ScoreWall"))
         {
             ResetBall();
         }
-        else if (other.CompareTag(otherTag))
+        else if (other.CompareTag("BounceWall"))
         {
             velocity.y = -velocity.y;
         }
