@@ -45,11 +45,13 @@ public class Ball : MonoBehaviour
         transform.position = Vector2.zero;
         direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag(tags[(int) CollisonTag.ScoreWall])) //Checks to see if the ball enters the Score zone boundaries, and resets if so
         {
             ResetBall();
+            GameManager.IncrementScore(other.GetComponent<ScoreWall>().scoringPlayer);
         }
         else if (other.CompareTag(tags[(int) CollisonTag.BounceWall])) //Checks to see if the ball hits the top or bottom wall, and bounce the ball in the opposite direction
         {

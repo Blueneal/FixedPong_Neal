@@ -1376,6 +1376,7 @@ GameObject:
   - component: {fileID: 750163711}
   - component: {fileID: 750163710}
   - component: {fileID: 750163709}
+  - component: {fileID: 750163712}
   m_Layer: 0
   m_Name: ScoreBoundaryLeft
   m_TagString: ScoreWall
@@ -1499,6 +1500,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1823548398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &750163712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750163708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab4ac77e0114984aab87da67e301b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoringPlayer: 1
 --- !u!1 &818121079
 GameObject:
   m_ObjectHideFlags: 0
@@ -3082,6 +3096,7 @@ GameObject:
   - component: {fileID: 1890164554}
   - component: {fileID: 1890164553}
   - component: {fileID: 1890164552}
+  - component: {fileID: 1890164555}
   m_Layer: 0
   m_Name: ScoreBoundaryRight
   m_TagString: ScoreWall
@@ -3205,6 +3220,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1823548398}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1890164555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890164551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab4ac77e0114984aab87da67e301b7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoringPlayer: 0
 --- !u!1 &2019126693
 GameObject:
   m_ObjectHideFlags: 0
