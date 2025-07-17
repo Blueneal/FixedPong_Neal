@@ -280,7 +280,7 @@ AudioSource:
   m_GameObject: {fileID: 277591914}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 76fdd5783bdcc6d47a36fa1eaa5bebc6, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -2317,11 +2317,10 @@ MonoBehaviour:
   - ScoreWall
   - BounceWall
   - Player
-  otherTag: 
   audioSource: {fileID: 277591915}
-  audioScore: {fileID: 8300000, guid: 60b1630540cc88449aaf70f2532ce857, type: 3}
-  audioPlayer: {fileID: 8300000, guid: 89ac86caef9822742bf80949d63e7186, type: 3}
-  audioWall: {fileID: 8300000, guid: 9c4744d1fb88f9c4d91c333d8cc1bb16, type: 3}
+  scoreAudio: {fileID: 8300000, guid: 60b1630540cc88449aaf70f2532ce857, type: 3}
+  playerBounceAudio: {fileID: 8300000, guid: 89ac86caef9822742bf80949d63e7186, type: 3}
+  wallBounceAudio: {fileID: 8300000, guid: 9c4744d1fb88f9c4d91c333d8cc1bb16, type: 3}
 --- !u!50 &1368952081
 Rigidbody2D:
   serializedVersion: 5

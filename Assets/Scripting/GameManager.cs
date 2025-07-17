@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    /// <summary>
+    /// Increments the score for the player corresponding to the score barrier that the ball enters
+    /// Takes the correct score texts and increments it by +1
+    /// </summary>
+    /// <param name="playerType"></param>
     public static void IncrementScore(PlayerType playerType)
     {
         if (Instance == null) return;
